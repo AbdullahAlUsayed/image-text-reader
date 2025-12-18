@@ -1,0 +1,29 @@
+.container {
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
+  text-align: center;
+}
+
+
+.preview img {
+  max-width: 100%;
+  margin: 15px 0;
+}
+
+
+textarea {
+  width: 100%;
+  margin-top: 10px;
+}
+
+
+.loader {
+  color: #007bff;
+  margin: 10px 0;
+}
+
+
+.error {
+  color: red;
+}

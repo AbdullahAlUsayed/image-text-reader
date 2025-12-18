@@ -1,0 +1,31 @@
+<div class="container">
+  <h2>Image Text Reader (OCR)</h2>
+
+
+  <input type="file" accept="image/*" (change)="onFileSelected($event)" />
+
+
+  <div *ngIf="imagePreview" class="preview">
+    <img [src]="imagePreview" />
+  </div>
+
+
+  <button (click)="extractText()" [disabled]="loading">Extract Text</button>
+
+
+  <div *ngIf="loading" class="loader">Processing image...</div>
+
+
+  <textarea
+    *ngIf="extractedText"
+    [(ngModel)]="extractedText"
+    rows="10"
+    placeholder="Extracted text will appear here">
+</textarea>
+
+
+  <button *ngIf="extractedText" (click)="copyText()">Copy Text</button>
+
+
+  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+</div>
