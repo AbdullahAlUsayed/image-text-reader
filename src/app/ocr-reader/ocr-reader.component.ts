@@ -40,12 +40,8 @@ export class OcrReaderComponent {
 
   async extractText() {
     if (!this.selectedImage || !this.isBrowser) return;
-
     this.loading = true;
-
-    // ✅ Dynamic import (browser only)
     const Tesseract = await import('tesseract.js');
-
     try {
       const result = await Tesseract.recognize(this.selectedImage, 'eng');
       this.extractedText = result.data.text;
