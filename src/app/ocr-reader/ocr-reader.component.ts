@@ -31,6 +31,7 @@ export class OcrReaderComponent {
       return;
     }
 
+
     this.selectedImage = file;
     const reader = new FileReader();
     reader.onload = () => this.imagePreview = reader.result;
