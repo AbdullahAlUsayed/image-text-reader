@@ -1,25 +1,121 @@
-.container {
-  max-width: 600px;
-  margin: auto;
+/* Page background */
+.ocr-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #edf8ff, #f7fbff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 20px;
+  font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Card container */
+.ocr-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 30px;
+  width: 100%;
+  max-width: 550px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   text-align: center;
 }
 
+/* Title */
+.title {
+  margin-bottom: 5px;
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+/* Subtitle */
+.subtitle {
+  font-size: 0.95rem;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+/* Upload box */
+.upload-box {
+  display: block;
+  padding: 15px;
+  border: 2px dashed #007bff;
+  border-radius: 12px;
+  color: #007bff;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  background: #f0f7ff;
+}
+
+/* Image preview */
 .preview img {
   max-width: 100%;
+  border-radius: 10px;
   margin: 15px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
+/* Buttons */
+.primary-btn,
+.copy-btn {
+  width: 100%;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 15px;
+  transition: background 0.3s ease;
+}
+
+.primary-btn {
+  background: #007bff;
+  color: #fff;
+}
+
+.primary-btn:disabled {
+  background: #a7c8ff;
+  cursor: not-allowed;
+}
+
+.primary-btn:hover:not(:disabled) {
+  background: #0056b3;
+}
+
+.copy-btn {
+  background: #28a745;
+  color: #fff;
+}
+
+.copy-btn:hover {
+  background: #1e7e34;
+}
+
+/* Text area */
 textarea {
   width: 100%;
-  margin-top: 10px;
+  margin-top: 15px;
+  padding: 12px;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  font-size: 0.95rem;
+  resize: vertical;
 }
 
+/* Loader */
 .loader {
+  margin-top: 10px;
   color: #007bff;
-  margin: 10px 0;
+  font-size: 0.9rem;
 }
 
+/* Error message */
 .error {
-  color: red;
+  margin-top: 10px;
+  color: #dc3545;
+  font-size: 0.9rem;
 }

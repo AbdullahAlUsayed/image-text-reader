@@ -1,17 +1,36 @@
-<div class="container">
-  <h2>Image Text Reader (OCR)</h2>
-  <input type="file" accept="image/*" (change)="onFileSelected($event)" />
-  <div *ngIf="imagePreview" class="preview">
-    <img [src]="imagePreview" />
+<div class="ocr-wrapper">
+  <div class="ocr-card">
+    <h2 class="title">📄 Image Text Reader (OCR)</h2>
+    <p class="subtitle">Upload an image and extract readable text instantly</p>
+
+    <label class="upload-box">
+      <input type="file" accept="image/*" (change)="onFileSelected($event)" hidden />
+      <span>📁 Click to Upload Image</span>
+    </label>
+
+    <div *ngIf="imagePreview" class="preview">
+      <img [src]="imagePreview" />
+    </div>
+
+    <button class="primary-btn" (click)="extractText()" [disabled]="loading || !imagePreview">
+      {{ loading ? 'Extracting...' : 'Extract Text' }}
+    </button>
+
+    <div *ngIf="loading" class="loader">
+      🔄 Processing image, please wait...
+    </div>
+
+    <textarea
+      *ngIf="extractedText"
+      [(ngModel)]="extractedText"
+      rows="8"
+      placeholder="Extracted text will appear here">
+    </textarea>
+
+    <button *ngIf="extractedText" class="copy-btn" (click)="copyText()">
+      📋 Copy Text
+    </button>
+
+    <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
   </div>
-  <button (click)="extractText()" [disabled]="loading">Extract Text</button>
-  <div *ngIf="loading" class="loader">Processing image...</div>
-  <textarea
-    *ngIf="extractedText"
-    [(ngModel)]="extractedText"
-    rows="10"
-    placeholder="Extracted text will appear here">
-</textarea>
-  <button *ngIf="extractedText" (click)="copyText()">Copy Text</button>
-  <p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
 </div>
